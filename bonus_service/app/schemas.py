@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from uuid import UUID
 from datetime import datetime
 from enum import Enum
@@ -7,7 +7,6 @@ class TransactionType(str, Enum):
     ACCRUAL = "ACCRUAL"
     WRITE_OFF = "WRITE_OFF"
 
-# Схемы для операций с баллами
 class AccruePointsRequest(BaseModel):
     order_id: UUID
     delivery_id: UUID | None = None
@@ -29,13 +28,11 @@ class TransactionResponse(BaseModel):
     reason: str
     created_date: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class BalanceResponse(BaseModel):
-    account_id: UUID
+    id: UUID
     current_balance: float
     as_of_date: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

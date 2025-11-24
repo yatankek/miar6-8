@@ -24,5 +24,5 @@ class Account(Base):
     __tablename__ = "accounts"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    current_balance = Column(Float, default=0.0)
+    current_balance = Column(Float, default=0.0, nullable=False)
     as_of_date = Column(DateTime, nullable=False)
