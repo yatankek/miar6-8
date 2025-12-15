@@ -2,11 +2,11 @@ name: Delivery Service CI/CD to Yandex Cloud
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
     paths:
       - 'delivery_service/**'
   pull_request:
-    branches: ["main"]
+    branches: ["master"]
     paths:
       - 'delivery_service/**'
 
